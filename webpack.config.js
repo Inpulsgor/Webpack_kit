@@ -1,11 +1,15 @@
 const path = require("path");
+const WebpackBar = require('webpackbar');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'bundle.js',
+    filename: 'index.js',
   },
   module: {
     rules: [
@@ -14,12 +18,38 @@ module.exports = {
         exclude: /node_modules/,
         use: 'babel-loader',
       },
+	  {
+        test: /\.css$/i,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+        ],
+      },
       {
         test: /\.scss$/i,
-        use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+          'sass-loader',
+        ],
       },
       { test: /\.tsx?$/, loader: 'ts-loader' },
     ],
   },
-  plugins: [new MiniCssExtractPlugin()],
+  plugins: [
+	new CleanWebpackPlugin(), // removes dist folder - before build
+	new WebpackBar(), // show status bar while building
+	new HtmlWebpackPlugin({
+		  template: './src/index.html',
+	}),
+	new MiniCssExtractPlugin({
+		filename: 'styles.css',
+	}),
+    // new BundleAnalyzerPlugin(),
+  ],
+  devServer: {
+    port: 1234,
+  },
 };
