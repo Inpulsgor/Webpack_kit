@@ -11,6 +11,7 @@ module.exports = {
     path: path.resolve(__dirname, 'build'),
     filename: 'index.js',
   },
+
   module: {
     rules: [
       {
@@ -18,37 +19,35 @@ module.exports = {
         exclude: /node_modules/,
         use: 'babel-loader',
       },
-	  {
-        test: /\.css$/i,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'postcss-loader',
-        ],
-      },
       {
         test: /\.scss$/i,
         use: [
+		//   'style-loader',
           MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader',
           'sass-loader',
         ],
       },
-      { test: /\.tsx?$/, loader: 'ts-loader' },
+      {
+		test: /\.tsx?$/,
+		loader: 'ts-loader'
+	  },
     ],
   },
+
   plugins: [
 	new CleanWebpackPlugin(), // removes dist folder - before build
 	new WebpackBar(), // show status bar while building
 	new HtmlWebpackPlugin({
-		  template: './src/index.html',
+		  template: path.resolve(__dirname, 'src', 'index.html'),
 	}),
 	new MiniCssExtractPlugin({
 		filename: 'styles.css',
 	}),
     // new BundleAnalyzerPlugin(),
   ],
+
   devServer: {
     port: 1234,
   },
