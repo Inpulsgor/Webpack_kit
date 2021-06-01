@@ -1,3 +1,3 @@
-import './scss/main.scss';
+import '../src/scss/main.scss';
 
-export const add = () => console.log('Welcome to webpack starter kit');
+const log = () => console.log('Welcome to webpack starter kit');

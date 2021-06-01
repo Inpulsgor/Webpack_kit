@@ -8,6 +8,7 @@
     "start": "webpack --mode development"
   },
   "keywords": [],
+  "license": "ISC",
   "author": "Dmytro Smakovskyi <dmsmakovskyi@gmail.com>",
   "homepage": "https://github.com/Inpulsgor/Webpack_kit#readme",
   "repository": {
@@ -17,7 +18,6 @@
   "bugs": {
     "url": "https://github.com/Inpulsgor/Webpack_kit/issues"
   },
-  "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.14.3",
     "@babel/preset-env": "^7.14.4",
