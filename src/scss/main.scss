@@ -1,0 +1,16 @@
+// UTILS
+@import "utils/variables";
+@import "utils/mixins";
+
+// VENDORS
+@import "vendors/normalize";
+
+// BASE
+@import "base/fonts";
+@import "base/base";
+
+// COMPONENTS
+@import "components/button";
+@import "components/categories";
+@import "components/pizza-block";
+@import "components/sort";

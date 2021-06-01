@@ -1,6 +1,3 @@
-export const add = (a, b) => a + b;
+import './scss/main.scss';
 
-add(2, 3);
-add(2, 3);
-add(2, 3);
-add(2, 3);
+export const add = () => console.log('Welcome to webpack starter kit');
