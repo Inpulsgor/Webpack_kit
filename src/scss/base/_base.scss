@@ -1,57 +1,395 @@
-html {
-  box-sizing: border-box;
-  scroll-behavior: smooth;
+/* base.css */
+
+/* http://carsonified.com/blog/design/setting-rather-than-resetting-default-styling/ */
+
+/* http://developer.yahoo.com/yui/fonts/ */
+
+/* http://developer.yahoo.com/yui/base/ */
+
+/* Font Reset from YUI http://developer.yahoo.com/yui/fonts
+If you want this size in pixels (px)	Declare this percent (%)
+                  10	                        77
+                  11	                        85
+                  12	                        93 (was 93)
+                  13	                        100
+                  14	                        108 (was 107)
+                  15	                        116 (was 114)
+                  16	                        123.1 (was 122)
+                  17	                        131 (was 129)
+                  18	                        138.5 (was 136)
+                  19	                        146.5 (was 144)
+                  20	                        153.9 (was 152)
+                  21	                        161.6 (was 159)
+                  22	                        167
+                  23	                        174
+                  24	                        182
+                  25	                        189
+                  26	                        197
+*/
+
+body {
+	height: 100%;
+	background: hsl(0, 0%, 100%);    /* not all browsers set white as the default background color  */
+	color: hsl(0, 0%, 27%);         /* color is set to create not too much contrast with the background color */
+	font: 13px/1.231 arial, helvetica, clean, sans-serif; /* YUI Font Reset */
+	*font: x-small;        /* YUI Font Reset */
+	*font-size: small;     /* YUI Font Reset */
+	line-height: 1.4;    /* line-height is to ensure that text is legible enough ( enough space between the lines) */
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
+input,
+select,
+textarea,
+button {
+	font: 99% arial, helvetica, clean, sans-serif;
 }
 
+table {
+	border-spacing: 0;
+	border-collapse: collapse;
+	font: 100%;
+	font-size: inherit;
+}
+
+pre,
+code,
+kbd,
+samp,
+tt {
+	font-family: monospace;
+	font-size: 108%;
+	line-height: 100%;
+}
+
+h1 {
+	/* 18px via YUI Fonts CSS foundation */
+	font-size: 138.5%;
+}
+
+h2 {
+	/* 16px via YUI Fonts CSS foundation */
+	font-size: 123.1%;
+}
+
+h3 {
+	/* 14px via YUI Fonts CSS foundation */
+	font-size: 108%;
+}
+
+body,
+p,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
 h1,
 h2,
 h3,
 h4,
 h5,
-h6 {
-  margin: 0;
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+blockquote,
+th,
+td {
+	margin: 0;
+	padding: 0;
 }
 
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 ul,
-ol {
-  list-style: none;
+ol,
+dl,
+blockquote {
+	margin: 1em 0;
 }
 
-a {
-  text-decoration: none;
+b,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+th,
+dt,
+strong {
+	font-weight: bold;
+}
+
+abbr,
+acronym {
+	border-bottom: 1px dotted #000;
+	cursor: help;
+}
+
+q,
+i,
+em,
+dfn,
+var,
+cite,
+address,
+blockquote {
+	font-style: italic;
+}
+
+ol,
+ul,
+dl {
+	margin-left: 2em;
+}
+
+ol li {
+	list-style: decimal outside;
+}
+
+ul li {
+	list-style: disc outside;
+}
+
+dl dd {
+	margin-left: 1em;
+}
+
+th,
+td {
+	padding: .5em;
+	border: 1px solid #000;
+}
+
+th {
+	text-align: center;
+}
+
+tbody th {
+	text-align: left;
+}
+
+caption {
+	position: absolute;
+	left: -999em;
+}
+
+fieldset,
+img {
+	border: 0;
 }
 
 img {
-  display: block;
-  max-width: 100%;
-  height: auto;
+	vertical-align: top;
 }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+legend {
+	padding-bottom: .5em;
+	color: hsl(0, 0%, 0%);
 }
 
-.visually-hidden:not(:focus):not(:active),
-input[type='checkbox'].visually-hidden,
-input[type='radio'].visually-hidden {
-  position: absolute;
+code {
+	color: #06f;
+}
 
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
+code,
+pre {
+	font-family: 'Courier New', monospace, serif;
+	font-size: 1em;
+}
 
-  white-space: nowrap;
+blockquote p::before,
+blockquote p::after,
+q::before,
+q::after {
+	content: '';
+}
 
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
+ins {
+	border-bottom: 3px double hsl(0, 0%, 20%);
+	text-decoration: none;
+}
+
+del {
+	text-decoration: line-through;
+}
+
+abbr,
+acronym {
+	border-bottom: 1px dotted hsl(0, 0%, 20%);
+	font-variant: normal;
+}
+
+hr {
+	margin-right: 30px;
+	margin-left: 30px;
+	border-width: 1px;
+	border-style: inset;
+}
+
+fieldset { line-height: 1; }
+
+input[type='checkbox'] {
+	vertical-align: middle;
+	*vertical-align: middle;
+}
+
+input[type='radio'] {
+	vertical-align: middle;
+}
+
+input { vertical-align: middle; }
+
+input,
+button,
+textarea,
+select,
+optgroup,
+option {
+	font-size: 100%;
+}
+
+/* this is to fix IE 6 and 7 which create extra right/left padding on buttons
+* IMPORTANT: because IE 6 does not understand the first selector below, you need to apply the class "inputButton" to all input of type="button" in your documents
+* the first declaration is for IE 6 and 7, the second one for IE 6 only, the third one is for all browsers.
+*/
+button,
+input[type='submit'],
+input[type='reset'],
+input[type='button'],
+.inputButton {
+	_width: 0;
+	padding: .2em .4em;
+	*overflow: visible;
+}
+
+a:link,
+a:visited { color: #000; }
+
+a:focus,
+:focus { outline: 1px dotted #000; }
+
+a:active,
+input:active,
+select:active,
+textarea:active { outline: none; }
+
+/* slightly enhanced, universal clearfix hack */
+.grouped::after {
+	content: ' ';
+	display: block;
+	visibility: hidden;
+	height: 0;
+	clear: both;
+	font-size: 0;
+}
+.grouped { display: inline-block; }
+
+* html .grouped {
+	height: 1%;
+}
+
+.grouped {
+	display: block;
+}
+
+.notice,
+.alert {
+	margin-top: 0;
+	padding: 5px;
+}
+
+.notice {
+	border: solid 1px hsl(120, 33%, 70%);
+	background-color: hsl(123, 66%, 93%);
+	color: hsl(120, 100%, 20%);
+}
+
+.alert {
+	border: 1px solid hsl(0, 100%, 40%);
+	background-color: hsl(0, 67%, 80%);
+	color: hsl(0, 100%, 40%);
+}
+
+label {
+	display: inline-block;
+	width: 120px;
+}
+
+abbr {
+	border: none;
+	cursor: default;
+}
+
+input,
+textarea {
+	font-size: 110%;
+}
+
+select {
+	font-size: 120%;
+}
+
+input[type='text']:focus,
+input[type='password']:focus,
+input[type='file']:focus,
+input[type='email']:focus,
+textarea:focus,
+select:focus {
+	border: 2px solid #2c2c2c;
+}
+
+input[type='text'],
+input[type='password'],
+input[type='file'],
+input[type='email'],
+textarea,
+select {
+	width: 300px;
+	padding: 5px;
+	border: 2px solid hsl(40, 3%, 82%);
+	border-radius: 5px;
+	border-radius: 5px;
+	border-radius: 5px;
+	outline: 0 none;
+	color: hsl(0, 0%, 33%);
+}
+
+form .input label {
+	vertical-align: middle;
+}
+
+form .input.text label {
+	vertical-align: top;
+}
+
+.field_with_errors input[type='text'],
+.field_with_errors input[type='password'],
+.field_with_errors input[type='file'],
+.field_with_errors textarea,
+.field_with_errors select {
+	border: 2px solid hsl(0, 48%, 77%);
+}
+
+.field_with_errors input[type='text']:focus,
+.field_with_errors input[type='password']:focus,
+.field_with_errors input[type='file']:focus,
+.field_with_errors textarea:focus {
+	border: 2px solid hsl(0, 68%, 42%);
+}
+
+.field_with_errors .error {
+	padding-left: 10px;
 }

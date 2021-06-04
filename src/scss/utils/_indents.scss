@@ -1,0 +1,11 @@
+// внутрішні і зовнішні відступи
+
+@function indents($key) {
+	@if map-get($indents, $key) {
+		@return #{map-get($indents, $key)}px;
+	}
+
+	@else {
+		@error 'Розмір #{$key}px недопустимий';
+	}
+}

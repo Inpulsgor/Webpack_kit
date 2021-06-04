@@ -1,0 +1,135 @@
+
+%container {
+	@include make-container;
+
+	max-width: 100%;
+
+	@include media-breakpoint-up(md) {
+		max-width: 89%;
+	}
+
+	@include media-breakpoint-up(lg) {
+		max-width: 84.3%;
+	}
+
+	@media ( min-width: 1920px ) {
+		max-width: 1621px;
+	}
+}
+
+%container-fluid {
+	@include make-container;
+	margin: {
+		right: auto;
+		left: auto;
+	}
+}
+
+%row {
+	@include make-row;
+}
+%border-radius-3 {
+	border-radius: 3px;
+}
+
+$d:
+	none,
+	inline,
+	inline-block,
+	block,
+	table,
+	table-row,
+	table-cell,
+	flex,
+	inline-flex;
+$dir: row, column, column-reverse, row-reverse;
+$w: wrap, nowrap, wrap-reverse;
+$jc: (
+	start: flex-start,
+	end: flex-end,
+	center: center,
+	between: space-between,
+	around: space-around
+);
+$ai: (
+	start: flex-start,
+	end: flex-end,
+	center: center,
+	baseline: baseline,
+	stretch: stretch
+);
+$ac: (
+	start: flex-start,
+	end: flex-end,
+	center: center,
+	between: space-between,
+	around: space-around,
+	stretch: stretch
+);
+$as: (
+	auto: auto,
+	start: flex-start,
+	end: flex-end,
+	center: center,
+	baseline: baseline,
+	stretch: stretch
+);
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+	@include media-breakpoint-up($breakpoint) {
+		$infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+		%box-shadow#{$infix} {
+			box-shadow: 0 0 10px -4px map-get($grays, hematite);
+		}
+
+		@for $i from 1 through $grid-columns {
+			%col#{$infix}-#{$i} {
+				@include make-col($i);
+				@include make-col-ready;
+			}
+		}
+
+		@each $display in $d {
+			%d#{$infix}-#{$display} {
+				display: $display;
+			}
+		}
+
+		@each $direction in $dir {
+			%flex#{$infix}-#{$direction} {
+				flex-direction: $direction;
+			}
+		}
+
+		@each $wrap in $w {
+			%flex#{$infix}-#{$wrap} {
+				flex-wrap: $wrap;
+			}
+		}
+
+		@each $index, $justify in $jc {
+			%justify-content#{$infix}-#{$index} {
+				justify-content: $justify;
+			}
+		}
+
+		@each $index, $align in $ai {
+			%align-items#{$infix}-#{$index} {
+				align-items: $align;
+			}
+		}
+
+		@each $index, $align in $ac {
+			%align-content#{$infix}-#{$index} {
+				align-content: $align;
+			}
+		}
+
+		@each $index, $align in $as {
+			%align-self#{$infix}-#{$index} {
+				align-self: $align;
+			}
+		}
+	}
+}

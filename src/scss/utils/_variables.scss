@@ -1,0 +1,39 @@
+$global-blue: hsl(213, 85%, 41%);
+$p-blue: hsl(213, 85%, 41%);
+$p-dark-blue: hsl(212, 100%, 25%);
+$p-gray: hsl(0, 0%, 56%);
+$p-orange: hsl(0, 100%, 66%);
+$p-red: hsl(0, 75%, 47%);
+$p-green: hsl(85, 37%, 51%);
+$p-black: hsl(0, 0%, 0%);
+$a-white: hsl(0, 0%, 100%);
+$i-white: hsl(0, 0%, 100%);
+
+$time: 300ms;
+
+$font: (
+	xs: 9,
+	small: 11,
+	normal: 13,
+	medium: 18,
+	large: 24,
+	xl: 36,
+);
+
+$indents: (
+	xs: 4,
+	small: 8,
+	normal: 16,
+	medium: 24,
+	large: 32,
+	xl: 40
+);
+
+$grid-breakpoints: (
+	xs: 0,
+	sm: 640px,
+	md: 961px,
+	lg: 1200px,
+	xl: 1599px,
+	xxl: 1920px,
+);

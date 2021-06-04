@@ -1,0 +1,96 @@
+@mixin for-phone-xs {
+	@media ( max-width: 575px ) {
+		@content;
+	}
+}
+
+@mixin for-phone-sm {
+	@media ( min-width: 576px ) {
+		@content;
+	}
+}
+
+@mixin for-phone-sm-only {
+	@media ( min-width: 576px ) and ( max-width: 767px ) {
+		@content;
+	}
+}
+
+@mixin for-tablet-md {
+	@media ( min-width: 768px ) {
+		@content;
+	}
+}
+
+@mixin for-tablet-md-only {
+	@media ( min-width: 768px ) and ( max-width: 991px ) {
+		@content;
+	}
+}
+
+@mixin for-desktop {
+	@media ( min-width: 992px ) {
+		@content;
+	}
+}
+
+@mixin for-desktop-only {
+	@media ( min-width: 992px ) and ( max-width: 1199px ) {
+		@content;
+	}
+}
+
+@mixin for-desktop-lg {
+	@media ( min-width: 1200px ) {
+		@content;
+	}
+}
+
+@mixin for-desktop-lg-only {
+	@media ( min-width: 1200px ) and ( max-width: 1499px ) {
+		@content;
+	}
+}
+
+@mixin for-desktop-xl {
+	@media ( min-width: 1500px ) {
+		@content;
+	}
+}
+
+// font
+@mixin font($ff: 'Raleway', $fw: 400, $fs: 16px, $lh: 1.2, $color: inherit) {
+	color: $color;
+	font-family: $ff;
+	font-size: $fs;
+	font-weight: $fw;
+	line-height: $lh;
+}
+
+// font size (rem)
+@function rem($px) {
+	@return ($px / 16) + rem;
+}
+
+@mixin transition($property, $time: 300ms) {
+	transition: {
+		property: $property;
+		duration: $time;
+	}
+}
+
+@mixin border($type: all, $color: hsl(210, 3%, 85%), $width: 1, $style: solid) {
+	@if $type == all {
+		border: #{$width}px $style $color;
+	}
+
+	@else if map-get((top: top, right: right, bottom: bottom, left: left), $type) {
+		border: {
+			#{$type}: #{$width}px $style $color;
+		}
+	}
+
+	@else {
+		@error 'введіть тип бордера';
+	}
+}
